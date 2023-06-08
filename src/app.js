@@ -1,60 +1,15 @@
-const offspring = {
-  Character: [
-    {
-      "male": "ตาเเดง",
-      "female": "ตาขาว",
-      "offspring": "ตาเเดง/ตาขาว"
-    },
-    {
-      "male": "ตาขาว",
-      "female": "ตาเเดง",
-      "offspring": "ตาขาว/ตาเเดง"
-    },
-    {
-      "male": "ตัวเทา",
-      "female": "ตัวดำ",
-      "offspring": "ตัวเทา/ตัวดำ"
-    },
-    {
-      "male": "ตัวดำ",
-      "female": "ตัวเทา",
-      "offspring": "ตัวดำ/ตัวเทา"
-    },
-    {
-      "male": "ปีกตรง",
-      "female": "ปีกกุด",
-      "offspring": "ปีกตรง/ปีกกุด"
-    },
-    {
-      "male": "ปีกกุด",
-      "female": "ปีกตรง",
-      "offspring": "ปีกกุด/ปีกตรง"
-    },
-    {
-      "male": "ปีกกุด",
-      "female": "ปีกโค้ง",
-      "offspring": "ปีกกุด/ปีกโค้ง"
-    },
-    {
-      "male": "ปีกโค้ง",
-      "female": "ปีกกุด",
-      "offspring": "ปีกโค้ง/ปีกกุด"
-    }
-  ],
-}
-
 const maleParent = {
-  sex: ["Male", "X", "X"],
-  trait1: ["wild type", "wild type"],
-  trait2: ["wild type", "wild type"],
-  trait3: ["ebony body", "ebony body"],
+  sex: ["X", "X"],
+  trait1: ["Wild type", "Wild type"],
+  trait2: ["Wild type", "Wild type"],
+  trait3: ["Wild type", "Wild type"],
 };
 
 const femaleParent = {
-  sex: ["Female", "X", "Y"],
-  trait1: ["wild type", "wild type"],
-  trait2: ["held-out wings", "held-out wings"],
-  trait3: ["ebony body", "ebony body"],
+  sex: ["X", "Y"],
+  trait1: ["White eyes", "White eyes"],
+  trait2: ["Wild type", "Wild type"],
+  trait3: ["Wild type", "Wild type"],
 };
 
 // Linear Congruential Generator
@@ -82,7 +37,6 @@ function getRandomElement(array) {
 function generateOffspring(mother, father) {
   const offspringSexChromosome = getRandomElement(["X", "Y"]);
   const offspringSex = offspringSexChromosome === "X" ? "Female" : "Male";
-
   return {
     sex: offspringSex,
     trait1: [getRandomElement(mother.trait1), getRandomElement(father.trait1)],
