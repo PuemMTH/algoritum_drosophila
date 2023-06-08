@@ -1,12 +1,12 @@
 const maleParent = {
-  sex: ["X", "X"],
+  sex: ["X", "Y"],
   trait1: ["Wild type", "Wild type"],
   trait2: ["Wild type", "Wild type"],
   trait3: ["Wild type", "Wild type"],
 };
 
 const femaleParent = {
-  sex: ["X", "Y"],
+  sex: ["X", "X"],
   trait1: ["White eyes", "White eyes"],
   trait2: ["Wild type", "Wild type"],
   trait3: ["Wild type", "Wild type"],
@@ -75,6 +75,13 @@ worksheet.columns = [
 for (let i = 0; i < offspringList.length; i++) {
   const offspring = offspringList[i];
   const trait1 = offspring.trait1
+  const trait1Check = () => {
+    if(offspring.sex == "Male"){
+      return offspring.trait1[0]
+    }else{
+      return offspring.trait1[1]
+    }
+  }
   const trait2 = offspring.trait2
   const trait3 = offspring.trait3
   worksheet.addRow({
@@ -82,7 +89,7 @@ for (let i = 0; i < offspringList.length; i++) {
     show_Trait1: trait1[0],
     show_Trait2: trait2[0],
     show_Trait3: trait3[0],
-    hide_Trait1: trait1[1],
+    hide_Trait1: trait1Check(),
     hide_Trait2: trait2[1],
     hide_Trait3: trait3[1],
   });
